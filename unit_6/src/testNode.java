@@ -22,7 +22,7 @@ public class testNode {
 
         node = nodeA;
         System.out.println("All Nodes: " + node.toString() );
-        System.out.println("Node B Data: " + node.toString(nodeB.getData()));
+        System.out.println("Single Node (B): " + node.toString(nodeB.getData()));
     }
 
 
@@ -44,25 +44,38 @@ public class testNode {
         return nodes[0];
     }
 
-
-
     public testNode (int nodeCount, boolean walkTheTree) {
-        node<Integer> node100 = makeTreeIntegers (nodeCount);
+        node<Integer> node100 = makeTreeIntegers(nodeCount);
         int expectedSum = 210; // 100 * (100+1) / 2
         int actualSum = node100.sumNodes();  // calls YOUR method
 
         // check that expectedSum == actualSum
         if (expectedSum == actualSum) {
             System.out.println("Node has expected sum.");
-        } else  {
+        } else {
             System.out.println("Actual " + actualSum);
             System.out.println("Expected " + expectedSum);
         }
-        if(walkTheTree) {
+        if (walkTheTree) {
             node100.showTree();
         }
     }
 
+    public static void testNodesAreEqual (int TestNode1, int TestNode2){
+        node<Integer> node20 = makeTreeIntegers(TestNode1);
+        node<Integer> node30 = makeTreeIntegers(TestNode2);
+        int expectedSum = 210; // 100 * (100+1) / 2
+        boolean e = node20.equals(node30);  // calls YOUR method
+
+        // check that expectedSum == actualSum
+        if (e) {
+            System.out.println("Nodes were equal.");
+        } else {
+            System.out.println("Error: Nodes are not equal. See the follow:");
+            System.out.println("20 ... " + node20.countNodes());
+            System.out.println("30 ... " + node30.countNodes());
+        }
+    }
 
 
     public static void main (String[] args){
@@ -70,5 +83,7 @@ public class testNode {
         testNode stringer = new testNode();
         //System.out.println(item.node.countNodes());
 
+        testNodesAreEqual(20, 30);
+        testNodesAreEqual(20, 20);
     }
 }

@@ -14,10 +14,16 @@ public class node<T> {
         return data;
     }
 
+    public node getLeftChild() {
+        return this.leftChild;
+    }
     public void setLeftChild(node<T> leftChild) {
         this.leftChild = leftChild;
     }
 
+    public node getRightChild() {
+        return this.rightChild ;
+    }
     public void setRightChild(node<T> rightChild) {
         this.rightChild = rightChild;
     }
@@ -86,4 +92,39 @@ public class node<T> {
         }
         //System.out.println ("Node: " + data);  // Post Order
     }
+
+
+
+
+
+    public boolean equals (Object o) {
+        if (o == null) { return false; }
+        if (o instanceof node) {
+
+            node n = (node)o;                                                       // <1>
+
+            if (!data.equals (n.getData ())) { return false; }                      // <2>
+
+            if (leftChild == null && n.getLeftChild () != null) { return false; }   // <3>
+            if (!(leftChild == null && n.getLeftChild () == null)) {
+                if (!leftChild.equals (n.getLeftChild ())) { return false; }        // <4>
+            }
+
+            if (rightChild == null && n.getRightChild () != null) { return false; } // <5>
+            if (!(rightChild == null && n.getRightChild () == null)) {
+                if (!rightChild.equals(n.getRightChild())) {
+                    return false;
+                }          // <6>
+            }
+
+            return true;                                                            // <7>
+
+        } else {  // given object is not a Node, so return false
+            return false;
+        }
+    }
+
+
+
+
 }
