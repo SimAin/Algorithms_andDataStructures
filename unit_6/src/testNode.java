@@ -1,17 +1,17 @@
 public class testNode {
     private node<String> node;
 
-   /* public testNode () {
+   public testNode () {
 
-        node<String> nodeA = new node<String>("A");
-        node<String> nodeB = new node<String>("B");
-        node<String> nodeC = new node<String>("C");
+        node<String> nodeA = new node<>("A");
+        node<String> nodeB = new node<>("B");
+        node<String> nodeC = new node<>("C");
 
-        node<String> nodeD = new node<String>("D");
-        node<String> nodeE = new node<String>("E");
-        node<String> nodeF = new node<String>("F");
+        node<String> nodeD = new node<>("D");
+        node<String> nodeE = new node<>("E");
+        node<String> nodeF = new node<>("F");
 
-        node<String> nodeG = new node<String>("G");
+        node<String> nodeG = new node<>("G");
 
         nodeA.setLeftChild(nodeB);
         nodeA.setRightChild(nodeC);
@@ -21,10 +21,9 @@ public class testNode {
         nodeC.setRightChild(nodeG);
 
         node = nodeA;
-        node.toString();
-     *//*   node.toString(nodeB.getData());
-        node.toString(nodeC.getData());*//*
-    }*/
+        System.out.println("All Nodes: " + node.toString() );
+        System.out.println("Node B Data: " + node.toString(nodeB.getData()));
+    }
 
 
 
@@ -47,26 +46,28 @@ public class testNode {
 
 
 
-    public testNode () {
-        node<Integer> node100 = makeTreeIntegers (20);
+    public testNode (int nodeCount, boolean walkTheTree) {
+        node<Integer> node100 = makeTreeIntegers (nodeCount);
         int expectedSum = 210; // 100 * (100+1) / 2
         int actualSum = node100.sumNodes();  // calls YOUR method
 
         // check that expectedSum == actualSum
         if (expectedSum == actualSum) {
-            System.out.println("WORKED");
+            System.out.println("Node has expected sum.");
         } else  {
             System.out.println("Actual " + actualSum);
             System.out.println("Expected " + expectedSum);
         }
-        node100.showTree();
+        if(walkTheTree) {
+            node100.showTree();
+        }
     }
 
 
 
     public static void main (String[] args){
-        testNode item = new testNode ();
-
+        testNode item = new testNode (20, false);
+        testNode stringer = new testNode();
         //System.out.println(item.node.countNodes());
 
     }

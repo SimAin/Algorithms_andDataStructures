@@ -30,32 +30,28 @@ public class node<T> {
     }
 
     public String toString() {
-        String topresult = "Data: " + data;
-        String leftresult = "";
-        String rightresult = "";
-                         // <1>
+        String topResult = "" + data;
+        String leftResult = "";
+        String rightResult = "";
         if (leftChild != null) {
-            leftresult = leftresult + leftChild.toString(leftChild.getData());   // <3>
-            leftChild.toString();   // <3>
+            leftResult = leftResult + leftChild.toString();
         }
-        if (rightChild != null) {           // <4>
-            rightresult = rightresult + rightChild.toString(rightChild.getData());   // <3>
-            rightChild.toString();
+        if (rightChild != null) {
+            rightResult = rightResult + rightChild.toString();
         }
-
-        System.out.println(topresult + leftresult + rightresult + "  123");
-        return topresult;
+        topResult = topResult + leftResult + rightResult;
+        return topResult;
     }
 
     public int countNodes () {
         int sum = 0;
 
-        sum += 1;                           // <1>
-        if (leftChild != null) {            // <2>
-            sum += leftChild.countNodes ();   // <3>
+        sum += 1;
+        if (leftChild != null) {
+            sum += leftChild.countNodes ();
         }
-        if (rightChild != null) {           // <4>
-            sum += rightChild.countNodes ();  // <5>
+        if (rightChild != null) {
+            sum += rightChild.countNodes ();
         }
 
         return sum;
