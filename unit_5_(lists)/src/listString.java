@@ -1,20 +1,19 @@
 public class listString {
     private ListNode head;
 
-    // the constructor simply creates the class with a null value for "head"
+
     public listString () {
         head = null;
     }
 
-    // the join method creates a new ListNode for the given item of data
-    // and appends the new item to the end of the list
+
     public void join (String data) {
-        if (head == null) {                         // <1>
+        if (head == null) {
             head = new ListNode (null, data);
-            return;                                   // <2>
+            return;
         }
 
-        ListNode current = head;                    // <3>
+        ListNode current = head;
 
         // walk the list to find the last item
         while (current.getNext () != null) {
@@ -25,11 +24,15 @@ public class listString {
         current.setNext (new ListNode (null, data));
     }
 
+    //TODO: Complete method and write check into main method to demo size
+    //TODO: write test method in testClass
     public String leave () {
         // COMPLETE THIS METHOD
         return "";
     }
 
+    //TODO: write check into main method to demo get
+    //TODO: write test method in testClass
     public String get (int i) {
         ListNode current = this.head;
         int currentIndex = 0;
@@ -41,9 +44,11 @@ public class listString {
             currentIndex += 1;
             current = current.getNext ();
         }
-        throw new ArrayIndexOutOfBoundsException (i); // <1>
+        throw new ArrayIndexOutOfBoundsException (i);
     }
 
+    //TODO: write check into main method to demo set
+    //TODO: write test method in testClass
     public void set (int i, String newData) {
         ListNode current = this.head;
         int currentIndex = 0;
@@ -55,9 +60,10 @@ public class listString {
             currentIndex += 1;
             current = current.getNext ();
         }
-        throw new ArrayIndexOutOfBoundsException (i); // <1>
+        throw new ArrayIndexOutOfBoundsException (i);
     }
 
+    //TODO: write test method in testClass
     public ListNode insert (String data, int index) {
         ListNode current = this.head;
         int currentIndex = 0;
@@ -70,17 +76,19 @@ public class listString {
         }
 
         while (current != null) {
-            if (currentIndex+1 == index) {                                    // <2>
-                ListNode insertedNode = new ListNode (current.getNext(), data); // <3>
-                current.setNext(insertedNode);                                    // <4>
-                return this.head;                                                    // <5>
+            if (currentIndex+1 == index) {
+                ListNode insertedNode = new ListNode (current.getNext(), data);
+                current.setNext(insertedNode);
+                return this.head;
             }
             currentIndex += 1;
             current = current.getNext ();
         }
-        throw new ArrayIndexOutOfBoundsException (index); // <6>
+        throw new ArrayIndexOutOfBoundsException (index);
     }
 
+    //TODO: write check into main method to demo delete
+    //TODO: write test method in testClass
     public ListNode delete (int index) {
         ListNode current = this.head;
         int currentIndex = 0;
@@ -105,6 +113,8 @@ public class listString {
         this.head = null;
     }
 
+    //TODO: write check into main method to demo size
+    //TODO: write test method in testClass
     public int size () {
         int result = 0;
 
@@ -119,8 +129,7 @@ public class listString {
         return result;
     }
 
-
-
+    // Main method to run and demo methods.
     public static void main (String[] args){
         listString ls = new listString ();
 
