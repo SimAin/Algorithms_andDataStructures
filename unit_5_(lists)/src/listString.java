@@ -1,5 +1,5 @@
 public class listString {
-    private ListNode head;
+    private listNode head;
 
 
     public listString () {
@@ -9,11 +9,11 @@ public class listString {
 
     public void join (String data) {
         if (head == null) {
-            head = new ListNode (null, data);
+            head = new listNode (null, data);
             return;
         }
 
-        ListNode current = head;
+        listNode current = head;
 
         // walk the list to find the last item
         while (current.getNext () != null) {
@@ -21,7 +21,7 @@ public class listString {
         }
 
         // make a new node from data and place it in the lastItem
-        current.setNext (new ListNode (null, data));
+        current.setNext (new listNode (null, data));
     }
 
     //TODO: Complete method and write check into main method to demo size
@@ -34,7 +34,7 @@ public class listString {
     //TODO: write check into main method to demo get
     //TODO: write test method in testClass
     public String get (int i) {
-        ListNode current = this.head;
+        listNode current = this.head;
         int currentIndex = 0;
 
         while (current != null) {
@@ -50,7 +50,7 @@ public class listString {
     //TODO: write check into main method to demo set
     //TODO: write test method in testClass
     public void set (int i, String newData) {
-        ListNode current = this.head;
+        listNode current = this.head;
         int currentIndex = 0;
 
         while (current != null) {
@@ -64,20 +64,20 @@ public class listString {
     }
 
     //TODO: write test method in testClass
-    public ListNode insert (String data, int index) {
-        ListNode current = this.head;
+    public listNode insert (String data, int index) {
+        listNode current = this.head;
         int currentIndex = 0;
         if (index < 0) { // check index is positive
             throw new ArrayIndexOutOfBoundsException (index);
         }
 
         if (index == 0) {   // <1>
-            return new ListNode (current, data);
+            return new listNode (current, data);
         }
 
         while (current != null) {
             if (currentIndex+1 == index) {
-                ListNode insertedNode = new ListNode (current.getNext(), data);
+                listNode insertedNode = new listNode (current.getNext(), data);
                 current.setNext(insertedNode);
                 return this.head;
             }
@@ -89,8 +89,8 @@ public class listString {
 
     //TODO: write check into main method to demo delete
     //TODO: write test method in testClass
-    public ListNode delete (int index) {
-        ListNode current = this.head;
+    public listNode delete (int index) {
+        listNode current = this.head;
         int currentIndex = 0;
 
         if (index == 0) {
@@ -118,7 +118,7 @@ public class listString {
     public int size () {
         int result = 0;
 
-        ListNode current = head;
+        listNode current = head;
 
         // walk the list to find the last item
         while (current != null) {

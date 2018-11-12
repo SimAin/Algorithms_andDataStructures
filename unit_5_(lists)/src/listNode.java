@@ -1,10 +1,10 @@
 //
-public class ListNode {
+public class listNode {
 
-    private ListNode next;
+    private listNode next;
     private String data;
 
-    public ListNode (ListNode next, String data) {
+    public listNode (listNode next, String data) {
         this.next = next;
         this.data = data;
     }
@@ -17,20 +17,20 @@ public class ListNode {
 
     //TODO: write test method in testClass
     // Get next node.
-    public ListNode getNext () {
+    public listNode getNext () {
         return next;
     }
 
     //TODO: write test method in testClass
     // Set vale of next node
-    public void setNext (ListNode next) {
+    public void setNext (listNode next) {
         this.next = next;
     }
 
     //TODO: write test method in testClass
     // Return data in node
     public String get (int i) {
-        ListNode current = this;
+        listNode current = this;
         int currentIndex = 0;
 
         while (current != null) {
@@ -46,7 +46,7 @@ public class ListNode {
     //TODO: write test method in testClass
     // Set value in current node
     public void set (int i, String newData) {
-        ListNode current = this;
+        listNode current = this;
         int currentIndex = 0;
 
         while (current != null) {
@@ -61,20 +61,20 @@ public class ListNode {
 
     //TODO: write test method in testClass
     // Inset node into list.
-    public ListNode insert (String data, int index) {
-        ListNode current = this;
+    public listNode insert (String data, int index) {
+        listNode current = this;
         int currentIndex = 0;
         if (index < 0) { // check index is positive
             throw new ArrayIndexOutOfBoundsException (index);
         }
 
         if (index == 0) {
-            return new ListNode (current, data);
+            return new listNode (current, data);
         }
 
         while (current != null) {
             if (currentIndex+1 == index) {
-                ListNode insertedNode = new ListNode (current.getNext(), data);
+                listNode insertedNode = new listNode (current.getNext(), data);
                 current.next = insertedNode;
                 return this;
             }
@@ -86,8 +86,8 @@ public class ListNode {
 
     //TODO: write test method in testClass
     // Delete node in list
-    public ListNode delete (int index) {
-        ListNode current = this;
+    public listNode delete (int index) {
+        listNode current = this;
         int currentIndex = 0;
 
         if (index == 0) {
@@ -109,7 +109,7 @@ public class ListNode {
     //TODO: write test method in testClass
     // Take data, create node and place it in last item
     public void join (String data) {
-        ListNode current = this;
+        listNode current = this;
 
         // walk the list to find the last item
         while (current.getNext () != null) {
@@ -117,7 +117,7 @@ public class ListNode {
         }
 
         // make a new node from data and place it in the lastItem
-        current.setNext (new ListNode (null, data));
+        current.setNext (new listNode (null, data));
     }
 
     //TODO: write test method in testClass
@@ -134,7 +134,7 @@ public class ListNode {
 
     // Main method to run and demo methods.
     public static void main (String[] args){
-        ListNode lastItem = new ListNode (null, "last item");
+        listNode lastItem = new listNode (null, "last item");
         //ListNode middleItem = new ListNode (lastItem, "middle item");
         //ListNode firstItem = new ListNode (middleItem, "first item");
         //ListNode.join("Frank");
@@ -147,7 +147,7 @@ public class ListNode {
         }*/
 
 
-        ListNode myList = lastItem;
+        listNode myList = lastItem;
         myList.join ("new last item");
         System.out.println ("New list: " + myList);
 
