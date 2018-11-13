@@ -9,16 +9,3 @@ public class shape {
         return colour;
     }
 }
-
-public class circle {
-    private int radius;
-
-    public circle (String colour, int radius) {
-        super (colour);
-        this.radius = radius;
-    }
-
-    public int getRadius () {
-        return radius;
-    }
-}
