@@ -1,11 +1,11 @@
 public class shape {
-    private String colour;
+    private java.lang.String colour;
 
-    public shape (String colour) {
+    public shape (java.lang.String colour) {
         this.colour = colour;
     }
 
-    public String getColour () {
+    public java.lang.String getColour () {
         return colour;
     }
 }

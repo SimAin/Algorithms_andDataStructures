@@ -1,11 +1,10 @@
 public class circle extends shape{
     private int radius;
 
-    public circle (String colour, int radius) {
+    public circle (java.lang.String colour, int radius) {
         super (colour);
         this.radius = radius;
     }
-
     public int getRadius () {
         return radius;
     }
