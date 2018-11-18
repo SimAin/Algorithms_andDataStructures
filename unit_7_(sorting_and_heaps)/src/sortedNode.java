@@ -1,30 +1,30 @@
-public class node<T> {
-    private T data;
-    private node<T> leftChild;
-    private node<T> rightChild;
+public class sortedNode<T extends Comparable> {
+    private T key;
+    private sortedNode<T> leftChild;
+    private sortedNode<T> rightChild;
 
-    public node (T data) {     // <1>
-        this.data = data;
+    public sortedNode(T key) {
+        this.key = key;
 
         this.leftChild = null;
         this.rightChild = null;
     }
 
     public T getData() {
-        return data;
+        return key;
     }
 
-    public node getLeftChild() {
+    public sortedNode getLeftChild() {
         return this.leftChild;
     }
-    public void setLeftChild(node<T> leftChild) {
+    public void setLeftChild(sortedNode<T> leftChild) {
         this.leftChild = leftChild;
     }
 
-    public node getRightChild() {
+    public sortedNode getRightChild() {
         return this.rightChild ;
     }
-    public void setRightChild(node<T> rightChild) {
+    public void setRightChild(sortedNode<T> rightChild) {
         this.rightChild = rightChild;
     }
 
@@ -36,7 +36,7 @@ public class node<T> {
     }
 
     public String toString() {
-        String topResult = "" + data;
+        String topResult = "" + key;
         String leftResult = "";
         String rightResult = "";
         if (leftChild != null) {
@@ -64,7 +64,7 @@ public class node<T> {
     }
 
     public int sumNodes () {
-        int sum = (Integer)data;
+        int sum = (Integer)key;
         int leftSum = 0;
         int rightSum = 0;
 
@@ -82,7 +82,7 @@ public class node<T> {
 
     public void showTree () {
 
-        System.out.println ("Node: " + data);   // Pre Order
+        System.out.println ("Node: " + key);   // Pre Order
         if (leftChild != null) {
             leftChild.showTree ();
         }
@@ -95,11 +95,11 @@ public class node<T> {
 
     public boolean equals (Object o) {
         if (o == null) { return false; }
-        if (o instanceof node) {
+        if (o instanceof sortedNode) {
 
-            node n = (node)o;                                                       // <1>
+            sortedNode n = (sortedNode)o;                                                       // <1>
 
-            if (!data.equals (n.getData ())) { return false; }                      // <2>
+            if (!key.equals (n.getData ())) { return false; }                      // <2>
 
             if (leftChild == null && n.getLeftChild () != null) { return false; }   // <3>
             if (!(leftChild == null && n.getLeftChild () == null)) {
@@ -120,7 +120,64 @@ public class node<T> {
         }
     }
 
+    public sortedNode<T> find (T searchkey) {
+        if (key.equals (searchkey)) {
+            return this;
+        } else if (key.compareTo (searchkey) > 0) {
+            if (leftChild == null) {
+                return null;
+            } else {
+                return leftChild.find (searchkey);
+            }
+        } else {
+            if (rightChild == null) {
+                return null;
+            } else {
+                return rightChild.find (searchkey);
+            }
+        }
+    }
 
+    public boolean contains(T searchkey) {
+        if (key.equals (searchkey)) {
+            return true;
+        } else if (key.compareTo (searchkey) > 0) {
+            if (leftChild == null) {
+                //return null;
+            } else {
+                if(leftChild.contains(searchkey)) {
+                    return true;
+                }
+                leftChild.contains (searchkey);
+            }
+        } else {
+            if (rightChild == null) {
+                //null;
+            } else {
+                if(rightChild.contains (searchkey)){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
+    public void insert (T insertkey) {
+        if (key.equals (insertkey)) {
+            return;
+        } else if (key.compareTo (insertkey) > 0) {
+            if (leftChild == null) {
+                leftChild = new sortedNode<T>(insertkey);
 
+            } else {
+                leftChild.insert (insertkey);
+            }
+        } else {
+            if (rightChild == null) {
+                rightChild = new sortedNode<T>(insertkey);
+            } else {
+                rightChild.insert (insertkey);
+            }
+        }
+    }
 }

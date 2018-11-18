@@ -1,20 +1,18 @@
-public class listString {
-    private ListNode head;
+public class listString<T> {
+    private listNode head;
 
-    // the constructor simply creates the class with a null value for "head"
+
     public listString () {
         head = null;
     }
 
-    // the join method creates a new ListNode for the given item of data
-    // and appends the new item to the end of the list
     public void join (String data) {
-        if (head == null) {                         // <1>
-            head = new ListNode (null, data);
-            return;                                   // <2>
+        if (head == null) {
+            head = new listNode (null, data);
+            return;
         }
 
-        ListNode current = head;                    // <3>
+        listNode current = head;
 
         // walk the list to find the last item
         while (current.getNext () != null) {
@@ -22,30 +20,58 @@ public class listString {
         }
 
         // make a new node from data and place it in the lastItem
-        current.setNext (new ListNode (null, data));
+        current.setNext (new listNode (null, data));
     }
 
+    public String toString () {
+        String result = "";
+
+        result += "[";
+        listNode current = head;
+
+        while (current != null) {
+            result += current.getData();
+            if (current.getNext() != null) {
+                result += ", ";
+            }
+            current = current.getNext();
+        }
+
+        result += "]";
+
+        return result;
+    }
+
+    //TODO: Complete method and write check into main method to demo size
+    //TODO: write test method in testClass
     public String leave () {
         // COMPLETE THIS METHOD
         return "";
     }
 
-    public String get (int i) {
-        ListNode current = this.head;
+    //TODO Fix current testing error got get/set
+    public String get (int i) throws ArrayIndexOutOfBoundsException{
+        //listNode current = this.head;
         int currentIndex = 0;
 
+        listNode current = head;
+
+        // walk the list to find the last item
         while (current != null) {
-            if (currentIndex == i) {
-                return current.getData ();
+            System.out.println(currentIndex);
+            if(currentIndex == i) {
+                return current.getData();
             }
-            currentIndex += 1;
+            currentIndex+=1;
             current = current.getNext ();
         }
-        throw new ArrayIndexOutOfBoundsException (i); // <1>
+
+        throw new ArrayIndexOutOfBoundsException (i);
     }
 
-    public void set (int i, String newData) {
-        ListNode current = this.head;
+    //TODO Fix current testing error got get/set
+    public void set (int i, String newData) throws ArrayIndexOutOfBoundsException {
+        listNode current = this.head;
         int currentIndex = 0;
 
         while (current != null) {
@@ -53,36 +79,35 @@ public class listString {
                 current.set(i, newData);
             }
             currentIndex += 1;
-            current = current.getNext ();
+            current = current.getNext();
         }
-        throw new ArrayIndexOutOfBoundsException (i); // <1>
     }
 
-    public ListNode insert (String data, int index) {
-        ListNode current = this.head;
+    public listNode insert (String data, int index) {
+        listNode current = this.head;
         int currentIndex = 0;
         if (index < 0) { // check index is positive
             throw new ArrayIndexOutOfBoundsException (index);
         }
 
         if (index == 0) {   // <1>
-            return new ListNode (current, data);
+            return new listNode (current, data);
         }
 
         while (current != null) {
-            if (currentIndex+1 == index) {                                    // <2>
-                ListNode insertedNode = new ListNode (current.getNext(), data); // <3>
-                current.setNext(insertedNode);                                    // <4>
-                return this.head;                                                    // <5>
+            if (currentIndex+1 == index) {
+                listNode insertedNode = new listNode (current.getNext(), data);
+                current.setNext(insertedNode);
+                return this.head;
             }
             currentIndex += 1;
             current = current.getNext ();
         }
-        throw new ArrayIndexOutOfBoundsException (index); // <6>
+        throw new ArrayIndexOutOfBoundsException (index);
     }
 
-    public ListNode delete (int index) {
-        ListNode current = this.head;
+    public listNode delete (int index) {
+        listNode current = this.head;
         int currentIndex = 0;
 
         if (index == 0) {
@@ -108,7 +133,7 @@ public class listString {
     public int size () {
         int result = 0;
 
-        ListNode current = head;
+        listNode current = head;
 
         // walk the list to find the last item
         while (current != null) {
@@ -119,8 +144,7 @@ public class listString {
         return result;
     }
 
-
-
+    // Main method to run and demo methods.
     public static void main (String[] args){
         listString ls = new listString ();
 
