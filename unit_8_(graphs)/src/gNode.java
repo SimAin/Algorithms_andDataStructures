@@ -29,5 +29,11 @@ public class gNode<T> {
         return sum;
     }
 
+    public boolean isEven() {
+        if((links.size() / 2) % 1 == 0 ) {
+            return true;
+        }
+        return false;
+    }
 
 }

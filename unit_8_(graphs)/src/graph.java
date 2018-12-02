@@ -17,12 +17,26 @@ public class graph<T> {
     }
 
     public int size () {
-        if (nodes.size () > 0) { // <1>
+        if (nodes.size () > 0) {
             return nodes.get(0).countNodes (new list<gNode<T>> ());
         } else {
             return 0;
         }
     }
 
+    public boolean isEulerian() {
+        for (int i = 0; i < size(); i++) {
+            if(!nodes.get(i).isEven()){
+                return false;
+            }
+        }
+        if (!isConnected()){
+            return false;
+        }
+        return true;
+    }
 
+    public boolean isConnected() {
+        return (size() == nodes.size());
+    }
 }
