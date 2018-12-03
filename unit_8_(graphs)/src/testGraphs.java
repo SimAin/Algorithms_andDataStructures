@@ -1,5 +1,7 @@
 public class testGraphs {
     public static void main (String[] args){
+
+        //TODO: write more comprehensive tests to cover all elements of the classes
         graph<Integer> graph = new graph<> ();
 
         gNode<Integer> node1 = graph.addNode (1);
