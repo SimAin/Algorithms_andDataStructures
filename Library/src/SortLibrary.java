@@ -3,9 +3,6 @@ public class SortLibrary {
     //Main runs all sorts and returns sorted results
     public static void main (String[] args) {
 
-
-
-
         measureBubbleSort (new int[]{3, 2, 1});
         measureBubbleSort (new int[]{ 5, 4, 3, 2, 1});
         measureBubbleSort (new int[]{6, 5, 4, 3, 2, 1});
@@ -13,9 +10,6 @@ public class SortLibrary {
         measureBubbleSort (new int[]{9, 8, 7, 6, 5, 4, 3, 2, 1});
         measureBubbleSort (new int[]{10, 9, 8, 7, 6, 5, 4, 3, 2, 1});
         measureBubbleSort (new int[]{12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1});
-
-
-
 
         int[] numbers = {15, 32, 67, 44, 98};
         for (int i : numbers
@@ -32,10 +26,14 @@ public class SortLibrary {
         ) {
             System.out.print(i + ", ");
         }
+
+        System.out.println("HERE");
+        String[] re = new String[]{"aa", "ba", "qw", "zz", "ds", "ea", "bb", "wa"};
+        insertionSort (re);
+        for (int i = 0; i < re.length; i++) {
+            System.out.println(re[i]);
+        }
     }
-
-
-
 
     public static void measureBubbleSort (int[] numbers) {
         numberOfSwaps = 0;
@@ -43,9 +41,6 @@ public class SortLibrary {
         System.out.println ("Number of swaps for array length " + numbers.length +
                 " is " + numberOfSwaps);
     }
-
-
-
 
     //region Helper methods
 
@@ -58,6 +53,17 @@ public class SortLibrary {
 
         numberOfSwaps += 1;
     }
+
+    public static void swap (String[] numbers, int i1, int i2) {
+        String temp;
+
+        temp = numbers[i1];
+        numbers[i1] = numbers[i2];
+        numbers[i2] = temp;
+
+        numberOfSwaps += 1;
+    }
+
 
     public static int findSmallestNumberIndex(int[] array, int start) {
         int small = start;
@@ -74,6 +80,18 @@ public class SortLibrary {
         for (int i = 0; i < counter; i++) {
             if(numbers[i] > mover) {
                 swap(numbers, i, counter);
+            }
+        }
+    }
+
+    public static void doInsert(String[]numbers, int counter) {
+        String mover = numbers[counter];
+        for (int i = 0; i < counter; i++) {
+            System.out.println(numbers[i].compareTo(mover));
+            if(numbers[i].compareTo(mover) > 0) {
+                swap(numbers, i, counter);
+            } else {
+
             }
         }
     }
@@ -170,6 +188,19 @@ public class SortLibrary {
             addLengthError(tempArray, numbers);
         }
 
+        return numbers;
+    }
+
+    public static String[] insertionSort (String[] numbers) {
+        int t = 0;
+        String[] tempArray = numbers;
+
+        if(numbers.length != 0) {
+            do {
+                doInsert (numbers, t);
+                t = t + 1;
+            } while (t != numbers.length);
+        }
         return numbers;
     }
 
