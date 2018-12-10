@@ -33,7 +33,7 @@ public class sortedTree<T extends Comparable<T>> {
         if (root == null) {
             root = new sortedNode<T> (key);
         } else {
-            root.insert (key); // insert 'adds' a node
+            root.insert (key);
         }
     }
 

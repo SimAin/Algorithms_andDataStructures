@@ -2,6 +2,8 @@ public class gNode<T> {
     private T value;
     private list<gNode<T>> links;
 
+
+    //TODO comment and explain
     public gNode (T value) {
         this.value = value;
         links = new list<gNode<T>> ();

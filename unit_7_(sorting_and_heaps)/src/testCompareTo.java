@@ -1,5 +1,6 @@
 public class testCompareTo {
 
+    //TODO: Test with more data and move into more well defined methods
     public static void main (String[] args){
         int result_ab = "a".compareTo ("b");
         int result_ba = "b".compareTo ("a");
