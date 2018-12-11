@@ -1,7 +1,5 @@
 package interfaceExample;
 
-import interfaceExample.priceable;
-
 public class veg implements priceable {  // <1>
     // all the vegetable class things
 

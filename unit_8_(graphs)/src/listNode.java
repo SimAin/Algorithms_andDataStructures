@@ -2,6 +2,7 @@ public class listNode<T> {
     listNode<T> next;
     T data;
 
+    //TODO comment and explain
     listNode (listNode<T> next, T data) {
         this.next = next;
         this.data = data;
