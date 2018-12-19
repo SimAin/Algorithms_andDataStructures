@@ -46,7 +46,6 @@ public class TestAverage {
     }
 
     //Main method
-    //TODO: This should test all possibilities and test against all methods in the Average class.
     public static void main (String[] args) {
 
         double[] numberList = {15, 32, 67, 44, 98};
@@ -63,6 +62,13 @@ public class TestAverage {
         testEqualDoubles (Average.findSum (emptyList), 0);
         testEqualDoubles (Average.findSum (singleList), 1);
 
+        testFindSum(Average.findSum(numberList), 256);
+
         testStringLengths(Average.computeStringLength(words),new double[] {4, 2, 7, 0} );
+
+        //Below do not have a return object and output from the method.
+        System.out.println(Average.toStringLengthArray(words));
+        System.out.println(Average.toDoubleArray(numberList));
+        System.out.println(Average.toArray(numberList));
     }
 }

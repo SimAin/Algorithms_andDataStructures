@@ -6,22 +6,6 @@ public class listString<T> {
         head = null;
     }
 
-    // Take data, create node and place it in last item
-    public void join (String data) {
-        if (this.head == null) {
-            this.head = new listNode (null, data);
-            return;
-        }
-
-        listNode current = this.head;
-
-        while (current.getNext () != null) {
-            current = current.getNext ();
-        }
-
-        current.setNext (new listNode (null, data));
-    }
-
     public String toString () {
         String result = "";
 
@@ -39,6 +23,22 @@ public class listString<T> {
         result += "]";
 
         return result;
+    }
+
+    // Take data, create node and place it in last item
+    public void join (String data) {
+        if (this.head == null) {
+            this.head = new listNode (null, data);
+            return;
+        }
+
+        listNode current = this.head;
+
+        while (current.getNext () != null) {
+            current = current.getNext ();
+        }
+
+        current.setNext (new listNode (null, data));
     }
 
     //TODO: Complete method and write test method in testClass

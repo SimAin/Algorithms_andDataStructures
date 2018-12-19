@@ -193,7 +193,7 @@ public class SortLibrary {
 
     public static String[] insertionSort (String[] numbers) {
         int t = 0;
-        String[] tempArray = numbers;
+        //String[] tempArray = numbers;
 
         if(numbers.length != 0) {
             do {
