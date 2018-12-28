@@ -1,6 +1,8 @@
 public class list<T> {
     private listNode<T> head;
 
+    //TODO update comments and explain
+
     // the constructor simply creates the class with a null value for "head"
     public list () {
         head = null;

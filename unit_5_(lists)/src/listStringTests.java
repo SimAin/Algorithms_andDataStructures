@@ -20,28 +20,27 @@ public class listStringTests {
         current.join("Frank");
         current.join("Jedi");
         current.delete(1);
-        current.insert("Hand Stand", 3);
+        current.insert("Hand Stand", 2);
         current.set(2, "Trains");
-
-        System.out.println(current.toString());
 
         //Testing set and get were successful.
         if(!current.get(2).equals("Trains")) {
             System.out.println("Error: Set/Get - output not as expected.");
+            System.out.println(current.toString());
             System.out.println("Actual: " + current.get(2));
             System.out.println("Expected: Trains");
         }
 
         //Testing size function works as expected.
         if(current.size() != 4) {
-            System.out.println("Error: Set/Get - output not as expected.");
+            System.out.println("Error: Set/Get - output size not as expected.");
         }
 
         //Testing to string method, that joins, delete, insert were successful.
-        if(checkStringValues(current.toString(), "[first item, last item, Frank, Hand Stand, Jedi, ]")) {
+        if(checkStringValues(current.toString(), "[middle, Frank, Trains, Jedi]")) {
             System.out.println("Error: toString output not as expected.");
-        } else {
-            System.out.println("??");
         }
+
+        System.out.println("Run complete: Any errors will be listed above.");
     }
 }

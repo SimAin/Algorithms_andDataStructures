@@ -1,6 +1,5 @@
 //A class with series of methods to manage a double array.
 public class Average {
-    private int i;
 
     //Find Sum of items in array.
     public static double findSum (double[] numbers) {
@@ -25,13 +24,14 @@ public class Average {
     }
 
     //Display array.
-    public static void showArray(double[] numbers) {
+    public static String toArray(double[] numbers) {
 
-        System.out.print ("The array: " );
+        String result = ("The array: " );
 
         for (int i = 0; i < numbers.length; i = i + 1) {
-            System.out.print (numbers[i] + ", ");
+            result = result + (numbers[i] + ", ");
         }
+        return result;
     }
 
     //Double all values in array.
@@ -47,13 +47,15 @@ public class Average {
     }
 
     //Display all values in array doubled.
-    public static void showDoubleArray(double[] doubleNumbers) {
+    public static String toDoubleArray(double[] doubleNumbers) {
 
-        System.out.print ("The array doubled : " );
+        String result = ("The array doubled : ");
 
         for (int i = 0; i < doubleNumbers.length; i = i + 1) {
-            System.out.print (doubleNumbers[i] + ", ");
+            result = result + ((doubleNumbers[i] * 2) + ", ");
         }
+
+        return result;
     }
 
     //Return the lengths of strings in an array.
@@ -68,35 +70,33 @@ public class Average {
     }
 
     //Show the length of strings in an array.
-    public static void showStringLengthArray(double[] doubleLengths) {
+    public static String toStringLengthArray(String[] doubleLengths) {
 
-        System.out.print ("The word array lengths : " );
+        String result = ("The word array lengths : " );
 
         for (int i = 0; i < doubleLengths.length; i = i + 1) {
-            System.out.print (doubleLengths[i] + ", ");
+            result = result + (doubleLengths[i].length() + ", ");
         }
+        return result;
     }
 
     //Main method
-    //TODO: poke all internal methods and demo expected result.
     public static void main (String[] args) {
 
         double[] numbers = {15, 32, 67, 44, 98};
         String[] words = {"Here", "You", "go", "again"};
 
-        //double[] numbers = {};
-
         double average = computeAverage (numbers);
-        showArray(numbers);
+        System.out.println (toArray(numbers));
         System.out.println ();
 
         double[] doubleNumbers = doubleArray(numbers);
-        
-        showDoubleArray(doubleNumbers);
+
+        System.out.println (toDoubleArray(doubleNumbers));
         System.out.println ();
         System.out.println ("The average of the numbers is: " + average);
 
         double[] lengths = computeStringLength(words);
-        showStringLengthArray(lengths);
+        System.out.println (toStringLengthArray(words));
     }
 }

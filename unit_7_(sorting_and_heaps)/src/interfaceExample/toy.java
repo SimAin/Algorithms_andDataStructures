@@ -1,6 +1,6 @@
 package interfaceExample;
 
-import interfaceExample.priceable;
+//TODO comment and explain
 
 public class toy implements priceable {  // <1>
     // all the vegetable class things

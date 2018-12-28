@@ -5,6 +5,7 @@ public class graph<T> {
         nodes = new list<gNode<T>>();
     }
 
+    //TODO comment and explain
     public gNode<T> addNode (T value) {
         gNode<T> newNode = new gNode<> (value);
         nodes.join (newNode);

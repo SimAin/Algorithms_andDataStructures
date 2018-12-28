@@ -1,20 +1,20 @@
 public class person implements Comparable<person> {
-    private String lastname;
-    private String firstname;
+    private String lastName;
+    private String firstName;
 
     public person (String firstname, String lastname) {
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstname;
+        this.lastName = lastname;
     }
 
-    public String getFirstname () { return firstname; }
-    public String getLastname () { return lastname; }
+    public String getFirstname () { return firstName; }
+    public String getLastname () { return lastName; }
 
     public int compareTo (person o) {
-        if (lastname.equals (o.getLastname ())) {
-            return firstname.compareTo (o.getFirstname ());
+        if (lastName.equals (o.getLastname ())) {
+            return firstName.compareTo (o.getFirstname ());
         } else {
-            return lastname.compareTo (o.getLastname ());
+            return lastName.compareTo (o.getLastname ());
         }
     }
 

@@ -6,23 +6,6 @@ public class listString<T> {
         head = null;
     }
 
-    public void join (String data) {
-        if (head == null) {
-            head = new listNode (null, data);
-            return;
-        }
-
-        listNode current = head;
-
-        // walk the list to find the last item
-        while (current.getNext () != null) {
-            current = current.getNext ();
-        }
-
-        // make a new node from data and place it in the lastItem
-        current.setNext (new listNode (null, data));
-    }
-
     public String toString () {
         String result = "";
 
@@ -42,14 +25,28 @@ public class listString<T> {
         return result;
     }
 
-    //TODO: Complete method and write check into main method to demo size
-    //TODO: write test method in testClass
+    // Take data, create node and place it in last item
+    public void join (String data) {
+        if (this.head == null) {
+            this.head = new listNode (null, data);
+            return;
+        }
+
+        listNode current = this.head;
+
+        while (current.getNext () != null) {
+            current = current.getNext ();
+        }
+
+        current.setNext (new listNode (null, data));
+    }
+
+    //TODO: Complete method and write test method in testClass
     public String leave () {
         // COMPLETE THIS METHOD
         return "";
     }
 
-    //TODO Fix current testing error got get/set
     public String get (int i) throws ArrayIndexOutOfBoundsException{
         //listNode current = this.head;
         int currentIndex = 0;
@@ -58,7 +55,6 @@ public class listString<T> {
 
         // walk the list to find the last item
         while (current != null) {
-            System.out.println(currentIndex);
             if(currentIndex == i) {
                 return current.getData();
             }
@@ -69,18 +65,27 @@ public class listString<T> {
         throw new ArrayIndexOutOfBoundsException (i);
     }
 
-    //TODO Fix current testing error got get/set
-    public void set (int i, String newData) throws ArrayIndexOutOfBoundsException {
+    public listNode set (int i, String newData) throws ArrayIndexOutOfBoundsException {
         listNode current = this.head;
         int currentIndex = 0;
+        if (i < 0) { // check index is positive
+            throw new ArrayIndexOutOfBoundsException (i);
+        }
+
+        if (i == 0) {   // <1>
+            return new listNode (current, newData);
+        }
 
         while (current != null) {
-            if (currentIndex == i) {
-                current.set(i, newData);
+            if (currentIndex+1 == i) {
+                listNode insertedNode = new listNode (current.getNext().getNext(), newData);
+                current.setNext(insertedNode);
+                return this.head;
             }
             currentIndex += 1;
-            current = current.getNext();
+            current = current.getNext ();
         }
+        throw new ArrayIndexOutOfBoundsException (i);
     }
 
     public listNode insert (String data, int index) {

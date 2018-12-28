@@ -10,7 +10,7 @@ public class genericsPair<A, B> {
     }
 
     // Gets the first object
-    public A getA () {                                  // <4>
+    public A getA () {
         return a;
     }
 
@@ -19,5 +19,3 @@ public class genericsPair<A, B> {
         return b;
     }
 }
-
-

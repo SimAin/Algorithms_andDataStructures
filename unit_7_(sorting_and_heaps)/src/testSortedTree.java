@@ -26,10 +26,11 @@ public class testSortedTree {
         return nodes[0];
     }
 
+    //TODO: call in main method and run with test data
     public testSortedTree(int nodeCount, boolean walkTheTree) {
         sortedNode<Integer> node100 = makeTreeIntegers(nodeCount);
         int expectedSum = 210; // 100 * (100+1) / 2
-        int actualSum = node100.sumNodes();  // calls YOUR method
+        int actualSum = node100.sumNodes();
 
         // check that expectedSum == actualSum
         if (expectedSum == actualSum) {
@@ -43,6 +44,7 @@ public class testSortedTree {
         }
     }
 
+    //TODO: call in main method and run with test data
     public static void testNodesAreEqual (int TestNode1, int TestNode2){
         sortedNode<Integer> node20 = makeTreeIntegers(TestNode1);
         sortedNode<Integer> node30 = makeTreeIntegers(TestNode2);

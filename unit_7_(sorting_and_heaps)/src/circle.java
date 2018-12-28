@@ -5,6 +5,9 @@ public class circle extends shape{
         super (colour);
         this.radius = radius;
     }
+
+    //TODO comment and explain
+
     public int getRadius () {
         return radius;
     }

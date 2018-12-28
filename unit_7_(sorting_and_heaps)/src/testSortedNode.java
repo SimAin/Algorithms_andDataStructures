@@ -37,6 +37,7 @@ public class testSortedNode {
         return nodes[0];
     }
 
+    //TODO: use in main method to test sorted node
     public testSortedNode(int nodeCount, boolean walkTheTree) {
         sortedNode<Integer> node100 = makeTreeIntegers(nodeCount);
         int expectedSum = 210; // 100 * (100+1) / 2
@@ -54,6 +55,7 @@ public class testSortedNode {
         }
     }
 
+    //TODO: use in main method to test sorted node
     public static void testNodesAreEqual (int TestNode1, int TestNode2){
         sortedNode<Integer> node20 = makeTreeIntegers(TestNode1);
         sortedNode<Integer> node30 = makeTreeIntegers(TestNode2);

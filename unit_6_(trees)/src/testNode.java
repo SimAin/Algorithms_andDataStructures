@@ -2,7 +2,6 @@ public class testNode {
     private node<String> node;
 
    public testNode () {
-
         node<String> nodeA = new node<>("A");
         node<String> nodeB = new node<>("B");
         node<String> nodeC = new node<>("C");
@@ -25,9 +24,7 @@ public class testNode {
         System.out.println("Single Node (B): " + node.toString(nodeB.getData()));
     }
 
-
-
-    public static node<Integer> makeTreeIntegers (int n) {
+   public static node<Integer> makeTreeIntegers (int n) {
         node<Integer>[] nodes = new node[n];
 
         for (int i=0; i<nodes.length; i+=1) {
@@ -44,7 +41,7 @@ public class testNode {
         return nodes[0];
     }
 
-    public testNode (int nodeCount, boolean walkTheTree) {
+   public testNode (int nodeCount, boolean walkTheTree) {
         node<Integer> node100 = makeTreeIntegers(nodeCount);
         int expectedSum = 210; // 100 * (100+1) / 2
         int actualSum = node100.sumNodes();  // calls YOUR method
@@ -61,11 +58,10 @@ public class testNode {
         }
     }
 
-    public static void testNodesAreEqual (int TestNode1, int TestNode2){
+   public static void testNodesAreEqual (int TestNode1, int TestNode2){
         node<Integer> node20 = makeTreeIntegers(TestNode1);
         node<Integer> node30 = makeTreeIntegers(TestNode2);
-        int expectedSum = 210; // 100 * (100+1) / 2
-        boolean e = node20.equals(node30);  // calls YOUR method
+        boolean e = node20.equals(node30);
 
         // check that expectedSum == actualSum
         if (e) {
@@ -77,11 +73,9 @@ public class testNode {
         }
     }
 
-
     public static void main (String[] args){
         testNode item = new testNode (20, false);
         testNode stringer = new testNode();
-        //System.out.println(item.node.countNodes());
 
         testNodesAreEqual(20, 30);
         testNodesAreEqual(20, 20);
